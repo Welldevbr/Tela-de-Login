@@ -31,6 +31,8 @@ body {
     background-color: #014f86;
     width: 40%;
     height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }   
     /* content end */
     /* title start */
