@@ -17,13 +17,14 @@ body {
 }
     /* content start */
 .content {
-    background-color: #f0efeb;
+    background-color: rgb(245, 245, 245);
     border-radius: 15px;
     width: 80%;
     height: 70%;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
 }
 .content::before {
     content: "";
@@ -63,7 +64,7 @@ body {
     margin: 0;
 }
 .title-primary {
-    color: #fff;
+    color: rgb(245, 245, 245);
 }
 .title-second {
     color: #014f86;
@@ -72,7 +73,7 @@ body {
     font-size: 14px;
     font-weight: 300;
     line-height: 30px;
-    color: #fff;
+    color: rgb(245, 245, 245);
     margin: 5px;
 }
 .description-second {
@@ -84,7 +85,7 @@ body {
 .btn {
     border-radius: 15px;
     text-transform: uppercase;
-    color: #fff;
+    color: rgb(245, 245, 245);
     font-size: 10px;
     padding: 10px 50px;
     cursor: pointer;
@@ -96,11 +97,11 @@ body {
 }
 .btn-primary {
     background-color: transparent;
-    border: 1px solid #fff;
+    border: 1px solid rgb(245, 245, 245);
     transition: background-color .5s;
 }
 .btn-primary:hover {
-    background-color: #fff;
+    background-color: rgb(245, 245, 245);
     color: #014f86;
 }
 .btn-second {
@@ -133,10 +134,9 @@ body {
     line-height: 35px;
     text-align: center;
     position: center;
-    transition: background-color .5s;
-    transition: border .5s;
+    transition: background-color .8s;
 }
-.item-social-media:not(:first-child){
+.item-social-media:not(:first-child) {
     margin-left: 5px;
 }
 .item-social-media a i:hover {
@@ -160,13 +160,17 @@ body {
     height: 45px;
     background-color: #d3e1eb;
     width: 100%;
+    outline: none;
+    border: none;
 }
 .label-input {
     background-color: #d3e1eb;
     display: flex;
     align-items: center;
     margin: 8px;
-
+}
+.label-input:focus-within {
+    border: 1.5px solid;
 }
 .icon-modify {
     color: #7f8c8d;
@@ -178,11 +182,11 @@ body {
     position: absolute;
     display: flex;
 }
-.second-content .first-column{
+.second-content .first-column {
     order: 2;
     z-index: -1;
 }
-.second-content .second-column{
+.second-content .second-column {
     order: 1;
     z-index: -1;
 }
@@ -198,27 +202,85 @@ body {
 /* second content end*/
 /* sign in js start */
 .sign-in-js .first-content .first-column,
-.sign-in-js .first-content .second-column{
+.sign-in-js .first-content .second-column {
     z-index: -1;
 }
-.sign-in-js .second-content .first-column,
-.sign-in-js .second-content .second-column{
+.sign-in-js .second-content .second-column {
     z-index: 11;
 }
-.sign-in-js .content::before{
+.sign-in-js .second-content .first-column {
+    z-index: 13;
+}
+.sign-in-js .content::before {
     left: 60%;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    animation: slidein 1s;
+    z-index: 12;
 }
 /* sign in js end */
 /* sign up js start */
+.sign-up-js .content::before {
+    animation: slideup 1s;
+    z-index: 11;
+}
 .sign-up-js .secont-content .first-column,
-.sign-up-js .secont-content .second-column{
+.sign-up-js .secont-content .second-column {
     z-index: -1;
 }
-.sign-up-js .first-content .first-column,
-.sign-up-js .first-content .second-column{
+.sign-up-js .first-content .second-column {
     z-index: 11;
+}
+.sign-up-js .first-content .first-column {
+    z-index: 13;
+}
+/* Animation CSS */
+@keyframes slidein {
+    from {
+        left: 0%;
+        width: 40%;
+    }
+    25% {
+        left: 5%;
+        width: 50%;
+
+    }
+    50% {
+        left: 25%;
+        width: 60%;
+    }
+    75% {
+        left: 45%;
+        width: 50%;
+    }
+    to {
+        left: 60%;
+        width: 40%;
+    }
+}
+
+@keyframes slideup {
+    from {
+        left: 60%;
+        width: 40%;
+    }
+    25% {
+        left: 45%;
+        width: 50%;
+
+    }
+    50% {
+        left: 25%;
+        width: 60%;
+    }
+    75% {
+        left: 5%;
+        width: 50%;
+    }
+    to {
+        left: 0%;
+        width: 40%;
+    }
 }
