@@ -1,11 +1,13 @@
 @import url('"https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
-.{
+. {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
 }
 .container {
     display: flex;
@@ -68,6 +70,7 @@ body {
 }
 .title-second {
     color: #014f86;
+    text-align: center;
 }
 .description{
     font-size: 14px;
@@ -201,9 +204,15 @@ body {
 }
 /* second content end*/
 /* sign in js start */
-.sign-in-js .first-content .first-column,
+.sign-in-js .first-content .first-column {
+    z-index: -1;
+}
 .sign-in-js .first-content .second-column {
     z-index: -1;
+    position: relative;
+    animation: esquerda 1s;
+    animation: baixo 1s;
+
 }
 .sign-in-js .second-content .second-column {
     z-index: 11;
@@ -217,17 +226,16 @@ body {
     border-bottom-left-radius: 0;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    animation: slidein 1s;
+    animation: slidein .4s;
     z-index: 12;
 }
 /* sign in js end */
 /* sign up js start */
 .sign-up-js .content::before {
-    animation: slideup 1s;
+    animation: slideup .4s;
     z-index: 11;
 }
-.sign-up-js .secont-content .first-column,
-.sign-up-js .secont-content .second-column {
+.sign-up-js .secont-content .first-column {
     z-index: -1;
 }
 .sign-up-js .first-content .second-column {
@@ -236,7 +244,58 @@ body {
 .sign-up-js .first-content .first-column {
     z-index: 13;
 }
-/* Animation CSS */
+.sign-up-js .second-content .second-column {
+    position: relative;
+    z-index: -1;
+    animation: direita 1s;
+    animation: cima 1s;
+}
+
+/* Animação CSS */
+/* Deslocamento */
+@keyframes direita {
+    from {
+        left: 0;
+        opacity: 1;
+        z-index: 12;
+    }
+    25% {
+        left: 80px;
+        opacity: .5;
+    }
+    50% {
+        left: 100;
+        opacity: .2;
+    }
+    to {
+        left: 110px;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+@keyframes esquerda {
+    from {
+        left: 0;
+        z-index: 12;
+        opacity: 1;
+    }
+    25% {
+        left: -80px;
+        opacity: .5;
+    }
+    50% {
+        left: -100;
+        opacity: .2;
+    }
+    to {
+        left: -110px;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+/* Deslocamento end */
+/* Slide Start */
 @keyframes slidein {
     from {
         left: 0%;
@@ -283,4 +342,127 @@ body {
         left: 0%;
         width: 40%;
     }
+}
+/* Slide End */
+/* Versão Mobile */
+@media screen and (max-width: 1080px) {
+    .content {
+        width: 100%;
+        height: 100%;
+    }
+    .content::before {
+        width: 100%;
+        height: 35%;
+        top: 0;
+        border-radius: 0;
+    }
+    .first-content, .second-content {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .sign-in-js .content::before {
+        top: 68%;
+        left: 0;
+        border-radius: 0;
+    }
+    .form {
+        width: 90%;
+    }
+    .first-column {
+        width: 100%;
+    }
+
+    /* Animação Mobile CSS */
+
+    @keyframes baixo {
+        from {
+            top: 0;
+            opacity: 1;
+            z-index: 12;
+        }
+        25% {
+            top: 10%;
+            opacity: .5;
+        }
+        50% {
+            top: 100px;
+            opacity: .2;
+        }
+        to {
+            top: 110px;
+            opacity: 0;
+            z-index: -1;
+        }
+    }
+    
+    @keyframes cima {
+        from {
+            top: 0;
+            z-index: 12;
+            opacity: 1;
+        }
+        25% {
+            top: -80px;
+            opacity: .5;
+        }
+        50% {
+            top: -100px;
+            opacity: .2;
+        }
+        to {
+            top: -110px;
+            opacity: 0;
+            z-index: -1;
+        }
+    }
+    
+    @keyframes slidein {
+        from {
+            top: 0%;
+            height: 40%;
+        }
+        25% {
+            top: 5%;
+            height: 50%;
+    
+        }
+        50% {
+            top: 25%;
+            height: 60%;
+        }
+        75% {
+            top: 45%;
+            height: 50%;
+        }
+        to {
+            top: 60%;
+            height: 40%;
+        }
+    }
+    
+    /* Slide */
+    @keyframes slideup {
+        from {
+            top: 60%;
+            height: 40%;
+        }
+        25% {
+            top: 45%;
+            height: 50%;
+    
+        }
+        50% {
+            top: 25%;
+            height: 60%;
+        }
+        75% {
+            top: 5%;
+            height: 50%;
+        }
+        to {
+            top: 0%;
+            height: 40%;
+        }
+    }
+
 }
