@@ -403,7 +403,7 @@ body {
 }
 /* Slide End */
 /* Versão Mobile */
-@media screen and (max-width: 80px) {
+@media screen and (max-width: 1080px) {
     .content {
         width: 100%;
         height: 100%;
